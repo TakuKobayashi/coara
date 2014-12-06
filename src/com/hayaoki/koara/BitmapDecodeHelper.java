@@ -1,7 +1,7 @@
 //  Created by 拓 小林
 //  Copyright (c) 2013年 TakuKobayashi All rights reserved.
 
-package com.hayaoki.coara;
+package com.hayaoki.koara;
 
 import android.app.Activity;
 import android.content.Context;

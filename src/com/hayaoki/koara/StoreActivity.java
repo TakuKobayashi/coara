@@ -1,4 +1,4 @@
-package com.hayaoki.coara;
+package com.hayaoki.koara;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

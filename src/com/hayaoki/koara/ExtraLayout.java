@@ -1,7 +1,7 @@
 //  Created by 拓 小林
 //  Copyright (c) 2013年 All rights reserved.
 
-package com.hayaoki.coara;
+package com.hayaoki.koara;
 
 import android.view.Display;
 import android.view.LayoutInflater;

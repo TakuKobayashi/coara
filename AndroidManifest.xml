@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hayaoki.coara"
+    package="com.hayaoki.koara"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -13,12 +13,13 @@
 
     <application
         android:allowBackup="true"
+        android:name="jp.co.noroshi.application.NoroshiApplication"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait" >
 
         <activity
-            android:name=".MenuActivity"
+            android:name="com.hayaoki.koara.MenuActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".KoaraActivity"
+            android:name="com.hayaoki.koara.KoaraActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -35,7 +36,7 @@
         </activity>
 
         <activity
-            android:name=".StatusActivity"
+            android:name="com.hayaoki.koara.StatusActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -43,14 +44,17 @@
         </activity>
 
         <activity
-            android:name=".StoreActivity"
+            android:name="com.hayaoki.koara.StoreActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmBroadcastReceiver" android:process=":remote"></receiver>
+        <receiver
+          android:name="com.hayaoki.koara.AlarmBroadcastReceiver"
+          android:process=":remote">
+        </receiver>
 
     </application>
 

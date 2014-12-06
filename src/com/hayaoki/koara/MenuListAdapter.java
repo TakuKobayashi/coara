@@ -1,4 +1,4 @@
-package com.hayaoki.coara;
+package com.hayaoki.koara;
 
 import java.util.ArrayList;
 import java.util.HashMap;
