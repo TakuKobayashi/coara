@@ -49,12 +49,15 @@ public class MenuActivity extends Activity {
     listView.setOnItemClickListener(new OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent();
         switch(position){
         case 0:
-          Intent intent = new Intent(MenuActivity.this, KoaraActivity.class);
+          intent.setClass(MenuActivity.this, KoaraActivity.class);
           startActivity(intent);
           break;
         case 1:
+          intent.setClass(MenuActivity.this, StoreActivity.class);
+          startActivity(intent);
           break;
         case 2:
           break;

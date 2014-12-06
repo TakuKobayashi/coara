@@ -3,11 +3,17 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <TextView
-    android:id="@+id/StoreView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="aaa"
+  <ImageView
+    android:id="@+id/StoreBgImageView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/store_list_bg"
+  />
+
+  <GridView
+    android:id="@+id/StoreGridView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
   />
 
 </RelativeLayout>
