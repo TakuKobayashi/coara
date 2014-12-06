@@ -23,17 +23,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class MenuActivity extends Activity {
+public class StatusActivity extends Activity {
 
-  private AlarmManager _alarmManager;
   private MenuListAdapter _adapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
     setContentView(R.layout.menu_view);
-    _alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
     ArrayList<Bitmap> imagelist = new ArrayList<Bitmap>();
     TypedArray images = this.getResources().obtainTypedArray(R.array.bg_array_drawable);
@@ -51,8 +48,6 @@ public class MenuActivity extends Activity {
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch(position){
         case 0:
-          Intent intent = new Intent(MenuActivity.this, KoaraActivity.class);
-          startActivity(intent);
           break;
         case 1:
           break;
@@ -65,21 +60,6 @@ public class MenuActivity extends Activity {
         }
       }
     });
-  }
-
-  private void setAlarm(long time){
-    Calendar calendar = Calendar.getInstance();
-    calendar.setTimeInMillis(System.currentTimeMillis());
-    // 5秒に設定
-    calendar.add(Calendar.SECOND, 1);
-    Log.d("coara", String.valueOf(System.currentTimeMillis()));
-    Log.d("coara", String.valueOf(calendar.getTimeInMillis()));
-
-  //発行するIntentの生成
-    Intent bootIntent = new Intent(MenuActivity.this, AlarmBroadcastReciever.class);
-    PendingIntent sender = PendingIntent.getBroadcast(MenuActivity.this, 0, bootIntent, 0);
-    _alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
-    Log.d("coara", "hogehoge");
   }
 
   @Override
