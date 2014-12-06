@@ -36,11 +36,8 @@ import android.util.Log;
 import android.view.Menu;
 
 //ActiveRecordっぽいものを作ってみました
-@Table(name = "mst_level")
-public class MstLevel extends BaseModel{
-  @Column(name = "level")
-  public int level;
-
-  @Column(name = "condition_value")
-  public float condition_value;
+@Table(name = "shop")
+public class ShopModel extends BaseModel{
+  @Column(name = "mst_shop_id")
+  public long mst_shop_id;
 }

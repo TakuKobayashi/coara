@@ -36,8 +36,8 @@ import android.util.Log;
 import android.view.Menu;
 
 //ActiveRecordっぽいものを作ってみました
-@Table(name = "shop")
-public class Shop extends BaseModel{
-  @Column(name = "mst_shop_id")
-  public long mst_shop_id;
+@Table(name = "achievement")
+public class AchievementModel extends BaseModel{
+  @Column(name = "mst_achievement_id")
+  public long mst_achievement_id;
 }

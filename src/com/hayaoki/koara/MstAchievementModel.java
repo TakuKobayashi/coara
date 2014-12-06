@@ -36,8 +36,22 @@ import android.util.Log;
 import android.view.Menu;
 
 //ActiveRecordっぽいものを作ってみました
-@Table(name = "achievement")
-public class Achievement extends BaseModel{
-  @Column(name = "mst_achievement_id")
-  public long mst_achievement_id;
+@Table(name = "mst_achievement")
+public class MstAchievementModel extends BaseModel{
+  @Column(name = "name")
+  public String name;
+
+  @Column(name = "category")
+  public int category;
+
+  @Column(name = "condition_value")
+  public float condition_value;
+
+  public static enum Category{
+    exp,
+    level,
+    money,
+    login,
+    consecutive_login
+  }
 }

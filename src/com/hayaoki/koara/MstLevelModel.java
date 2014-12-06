@@ -36,19 +36,11 @@ import android.util.Log;
 import android.view.Menu;
 
 //ActiveRecordっぽいものを作ってみました
-@Table(name = "mst_shop")
-public class MstShop extends BaseModel{
-  @Column(name = "price")
-  public float price;
+@Table(name = "mst_level")
+public class MstLevelModel extends BaseModel{
+  @Column(name = "level")
+  public int level;
 
-  @Column(name = "category")
-  public int category;
-
-  public static enum Category{
-    background,
-    item
-  }
-
-  @Column(name = "image_path")
-  public String image_path;
+  @Column(name = "condition_value")
+  public float condition_value;
 }
