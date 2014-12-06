@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="menu_word_list">
+    <item>ホーム</item>
+    <item>ストア</item>
+    <item>アラーム</item>
+    <item>ランキング</item>
+    <item>設定</item>
+  </string-array>
+  <string-array name="bg_array_drawable">
+    <item>@drawable/home_bg</item>
+    <item>@drawable/store_bg</item>
+    <item>@drawable/alarm_bg</item>
+    <item>@drawable/ranking_bg</item>
+    <item>@drawable/settings_bg</item>
+  </string-array>
+</resources>
