@@ -23,13 +23,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class KoaraActivity extends Activity {
   private KoaraView _koaraView;
+  private ImageView _image;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,16 @@ public class KoaraActivity extends Activity {
       e.printStackTrace();
     }
     _koaraView.setAnimationImageList(list);
+    _image = (ImageView) findViewById(R.id.DemoImage);
+    Button button1 = (Button) findViewById(R.id.BgButton);
+    button1.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        _image.setImageResource(R.drawable.ui_night_demo);
+      }
+    });
+    Button button2 = (Button) findViewById(R.id.ItemButton);
+
   }
 
   @Override
