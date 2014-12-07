@@ -3,11 +3,40 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <TextView
-    android:id="@+id/KoaraView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="aaa"
+  <View
+    android:id="@+id/com.hayaoki.koara.KoaraView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/BottomButtonLayout"
   />
 
+  <RelativeLayout
+    android:id="@+id/BottomButtonLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true">
+
+    <Button
+      android:id="@+id/ItemButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_toLeftOf="@+id/CenterSpacer"
+      android:text="aaa"
+    />
+
+    <View
+      android:id="@+id/CenterSpacer"
+      android:layout_width="1px"
+      android:layout_height="1px"
+      android:layout_centerHorizontal="true"
+    />
+
+    <Button
+      android:id="@+id/BgButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_toRightOf="@+id/CenterSpacer"
+      android:text="aaa"
+    />
+  </RelativeLayout>
 </RelativeLayout>
