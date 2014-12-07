@@ -84,6 +84,11 @@ public class ShopGridAdapter extends BaseAdapter {
     return convertView;
   }
 
+  public void remove(int position){
+    _modelList.remove(position);
+    this.notifyDataSetChanged();
+  }
+
   //---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   public void release(){

@@ -6,14 +6,17 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 import com.activeandroid.query.Select;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.TypedArray;
@@ -36,6 +39,7 @@ public class StoreActivity extends Activity {
 
   private ShopGridAdapter _adapter;
   private List<MstShopModel> _mst_shop_list;
+  private int _position;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class StoreActivity extends Activity {
     for(int i = 0;i < shopList.size();++i){
       list.add(String.valueOf(shopList.get(i).mst_shop_id));
     }
-    _mst_shop_list = new Select().from(MstShopModel.class).where("item_id NOT IN (?)", ApplicationHelper.join(list, ",")).execute();
+    _mst_shop_list = new Select().from(MstShopModel.class).where("id NOT IN (?)", ApplicationHelper.join(list, ",")).execute();
     _adapter = new ShopGridAdapter(this, _mst_shop_list);
     GridView gridView = (GridView) findViewById(R.id.StoreGridView);
     gridView.setAdapter(_adapter);
@@ -54,9 +58,32 @@ public class StoreActivity extends Activity {
     gridView.setOnItemClickListener(new OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        
+        _position = position;
+        executeBuy();
       }
     });
+  }
+
+  private void executeBuy(){
+    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+    alertDialogBuilder.setMessage("購入しますか");
+    alertDialogBuilder.setPositiveButton("はい", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int which) {
+          MstShopModel model = _mst_shop_list.get(_position);
+          ShopModel shop = new ShopModel();
+          shop.mst_shop_id = model.id;
+          shop.amount += 1;
+          shop.save();
+          _adapter.remove(_position);
+        }
+    });
+
+    alertDialogBuilder.setNegativeButton("いいえ", new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int which) {
+
+        }
+    });
+    alertDialogBuilder.create().show();
   }
 
   @Override
