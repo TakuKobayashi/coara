@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.util.AttributeSet;
@@ -24,12 +25,15 @@ public class KoaraView extends View {
 
   private Bitmap mClearImage = null;
   private Bitmap mRenderBaseImage = null;
+  private ArrayList<Bitmap> _imageList;
   private ArrayList<OverlayImage> _overlayLayer;
   private OverlayImage _targetLayer = null;
+  private int frameNum = 0;
 
   public KoaraView(Context context, AttributeSet attrs) {
     super(context, attrs);
     _overlayLayer = new ArrayList<OverlayImage>();
+    _imageList = new ArrayList<Bitmap>();
   }
 
   @Override
@@ -44,7 +48,23 @@ public class KoaraView extends View {
     for(int i = 0;i < _overlayLayer.size();i++){
       _overlayLayer.get(i).render(bitmapCanvas);
     }
+    if(_imageList.size() > 0){
+      if(frameNum >= _imageList.size()){
+        frameNum = 0;
+      }
+      Bitmap image = _imageList.get(frameNum);
+      frameNum = frameNum + 1;
+      RectF dst = new RectF(0, 0, image.getWidth(), image.getHeight());
+      float width = dst.width();
+      float height = dst.height();
+      dst.right = 873 + (width / 2);
+      dst.bottom = 1127.7f + (height / 2);
+      dst.left = 873 - (width / 2);
+      dst.top = 1127.7f  - (height / 2);
+      bitmapCanvas.drawBitmap(image, new Rect(0, 0, image.getWidth(), image.getHeight()), dst, null);
+    }
     canvas.drawBitmap(mRenderBaseImage, null, new Rect(0,0,mRenderBaseImage.getWidth(), mRenderBaseImage.getHeight()), null);
+    this.invalidate();
   }
 
   @Override
@@ -61,6 +81,11 @@ public class KoaraView extends View {
     OverlayImage oImage = new OverlayImage(image);
     _overlayLayer.add(oImage);
     _targetLayer = oImage;
+    this.invalidate();
+  }
+
+  public void setAnimationImageList(ArrayList<Bitmap> images){
+    _imageList.addAll(images);
     this.invalidate();
   }
 
@@ -84,5 +109,9 @@ public class KoaraView extends View {
       mRenderBaseImage.recycle();
       mRenderBaseImage = null;
     }
+    for(int i = 0; i< _imageList.size();++i){
+      _imageList.get(i).recycle();
+    }
+    _imageList.clear();
   }
 }
