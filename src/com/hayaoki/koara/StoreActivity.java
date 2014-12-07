@@ -44,7 +44,7 @@ public class StoreActivity extends Activity {
     List<ShopModel> shopList = new Select().from(ShopModel.class).execute();
     ArrayList<String> list = new ArrayList<String>();
     for(int i = 0;i < shopList.size();++i){
-    	list.add(String.valueOf(shopList.get(i).mst_shop_id));
+      list.add(String.valueOf(shopList.get(i).mst_shop_id));
     }
     _mst_shop_list = new Select().from(MstShopModel.class).where("item_id NOT IN (?)", ApplicationHelper.join(list, ",")).execute();
     AssetManager as = getResources().getAssets();

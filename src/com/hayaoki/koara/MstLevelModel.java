@@ -42,5 +42,5 @@ public class MstLevelModel extends BaseModel{
   public int level;
 
   @Column(name = "condition_value")
-  public float condition_value;
+  public int condition_value;
 }

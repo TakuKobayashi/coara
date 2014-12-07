@@ -39,15 +39,19 @@ import android.view.Menu;
 @Table(name = "mst_shop")
 public class MstShopModel extends BaseModel{
   @Column(name = "price")
-  public float price;
+  public int price;
 
   @Column(name = "category")
   public int category;
 
   public static enum Category{
-    background,
-    item
+    consume_item,
+    item,
+    background
   }
+
+  @Column(name = "gained_exp")
+  public int gained_exp;
 
   @Column(name = "image_path")
   public String image_path;

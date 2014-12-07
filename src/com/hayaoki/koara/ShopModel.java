@@ -40,4 +40,7 @@ import android.view.Menu;
 public class ShopModel extends BaseModel{
   @Column(name = "mst_shop_id")
   public long mst_shop_id;
+
+  @Column(name = "amount")
+  public int amount;
 }
