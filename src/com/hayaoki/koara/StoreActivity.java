@@ -47,24 +47,14 @@ public class StoreActivity extends Activity {
       list.add(String.valueOf(shopList.get(i).mst_shop_id));
     }
     _mst_shop_list = new Select().from(MstShopModel.class).where("item_id NOT IN (?)", ApplicationHelper.join(list, ",")).execute();
-    AssetManager as = getResources().getAssets();
-    ArrayList<Bitmap> imageList = new ArrayList<Bitmap>();
-    for(int i = 0;i < _mst_shop_list.size();++i){
-      try {
-        InputStream is = as.open(_mst_shop_list.get(i).image_path);
-        Bitmap bm = BitmapFactory.decodeStream(is);
-        imageList.add(bm);
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
-    _adapter = new ShopGridAdapter(this, imageList);
+    _adapter = new ShopGridAdapter(this, _mst_shop_list);
     GridView gridView = (GridView) findViewById(R.id.StoreGridView);
     gridView.setAdapter(_adapter);
+    gridView.setNumColumns(3);
     gridView.setOnItemClickListener(new OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //_mst_shop_list
+        
       }
     });
   }

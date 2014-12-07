@@ -1,0 +1,6 @@
+[
+   {  "id" : "1",  "price" : "10",  "category" : "0",  "gained_exp" : "10",  "image_path" : "items/water.png"  },
+   {  "id" : "2",  "price" : "20",  "category" : "0",  "gained_exp" : "20",  "image_path" : "items/banana.png"  },
+   {  "id" : "3",  "price" : "30",  "category" : "0",  "gained_exp" : "30",  "image_path" : "items/milk.png"  },
+   {  "id" : "4",  "price" : "90",  "category" : "1",  "gained_exp" : "90",  "image_path" : "items/crown.png"  }
+]

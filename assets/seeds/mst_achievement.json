@@ -1,0 +1,7 @@
+[
+  {  "id" : "1",  "name" : "ちこくマスター",  "category" : "1",  "condition_value" : "100"},
+  {  "id" : "2",  "name" : "ねぼすけ",  "category" : "2",  "condition_value" : "100"},
+  {  "id" : "3",  "name" : "ふつう",  "category" : "2",  "condition_value" : "200"},
+  {  "id" : "4",  "name" : "はやおき",  "category" : "3",  "condition_value" : "100"},
+  {  "id" : "5",  "name" : "はやおきマスター",  "category" : "3",  "condition_value" : "200"}
+]

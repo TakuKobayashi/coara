@@ -1,8 +1,11 @@
 package com.hayaoki.koara;
 
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
@@ -113,4 +116,15 @@ public class ApplicationHelper {
     toast.show();
   }
 
+  public static String loadText(InputStream inputStream) throws IOException{
+    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+    String line;
+    StringBuilder sb = new StringBuilder();
+    while ((line = reader.readLine()) != null) {
+      if(line != ""){
+        sb.append(line);
+      }
+    }
+    return sb.toString();
+  }
 }
